@@ -1,0 +1,26 @@
+BotLab body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #0f1220; color: #eaeaf0; } header { padding: 20px; text-align: center; background: #151935; } header h1 { margin: 0; } nav { display: flex; justify-content: center; gap: 15px; margin-top: 10px; } nav button { background: #2a2f6f; border: none; color: white; padding: 8px 14px; border-radius: 6px; cursor: pointer; } nav button:hover { background: #3b41a5; } main { padding: 20px; max-width: 900px; margin: auto; } .hidden { display: none; } .card { background: #1a1f45; padding: 15px; border-radius: 8px; margin-bottom: 10px; } label { display: block; margin-top: 10px; } input, textarea, select { width: 100%; padding: 8px; margin-top: 4px; border-radius: 6px; border: none; } .btn { margin-top: 15px; background: #5865f2; border: none; padding: 10px 16px; color: white; border-radius: 6px; cursor: pointer; } .btn:hover { background: #4752c4; } BotLab 🧪 
+
+build bots. test stuff. break things.
+
+Home Browse Bots Submit Bot Get Help Welcome to BotLab 
+
+A casual hub for Discord bot developers, testers, and server builders.
+
+Share your bots, discover new ones, or get help when something breaks.
+
+Join our Discord Browse Bots 
+
+Submit a Bot Bot Name Description Category Moderation Utility Leveling Fun Experimental Invite Link Submit Get Help 
+
+Need help with a command, error, or testing?
+
+Bot not responding Need help coding Looking for testers Ask in Discord const pages = ['home', 'browse', 'submit', 'help']; const botList = document.getElementById('botList'); function showPage(id) { pages.forEach(p => document.getElementById(p).classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); if (id === 'browse') renderBots(); } function getBots() { return JSON.parse(localStorage.getItem('bots') || '[]'); } function addBot() { const bots = getBots(); bots.push({ name: name.value, desc: desc.value, cat: cat.value, link: link.value }); localStorage.setItem('bots', JSON.stringify(bots)); alert('Bot submitted! (local demo)'); name.value = desc.value = link.value = ''; } function renderBots() { const bots = getBots(); botList.innerHTML = bots.length ? '' : '
+
+No bots yet.
+
+'; bots.forEach(b => { const div = document.createElement('div'); div.className = 'card'; div.innerHTML = `${b.name}
+
+${b.desc}
+
+${b.cat}
+Invite`; botList.appendChild(div); }); } 
